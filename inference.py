@@ -20,7 +20,3 @@ def prediction(img_name,model,transform = transform_img,labels = labels,device =
     img = transform(img).to(device).unsqueeze(0)
     pred = torch.argmax(model(img),-1)
     return labels[pred]
-
-if __name__ == '__main__':
-    load_model(cifar_model)
-    print(prediction('Australian-Shepherd',cifar_model))
